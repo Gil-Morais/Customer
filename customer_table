@@ -1,0 +1,77 @@
+SELECT altname
+    ,balancesearch
+    ,comments
+    ,companyname
+    ,contact
+    ,contactlist
+    ,creditlimit
+    ,custentity_eulerhermescreditlimit AS credit_insurance_approved_amount
+    ,(creditlimit - custentity_eulerhermescreditlimit) AS internal_credit_limit
+    ,custentity_bs_bank_subsidiary_entity AS bs_bank_subsidiary_entity
+    ,custentity_cantidad_declarada_impago AS cantidad_declarada_impago
+    ,custentity_cantidad_cobrada_impago AS cantidad_cobrada_impago
+    ,custentity_key_account AS key_account
+	  ,custentity_clientlocked AS clientlocked
+    ,custentity_commentscreditline AS commentscreditline
+    ,custentity_country AS country
+    ,custentity_creditappstatus AS creditappstatus
+    ,custentity_crm_subcontractors AS crm_subcontractors
+    ,custentity_customerorderrequirements AS customerorderrequirements
+    ,custentity_customerpsreq AS customerpsreq
+    ,custentity_daysofpayment AS daysofpayment
+    ,custentity_defaultbillingaddress
+    ,custentity_defaultlanguage AS defaultlanguage
+    ,custentity_defaultshippingaddress
+    ,custentity_defaultshippingmethod AS defaultshippingmethod
+    ,custentity_direct_debit AS direct_debit
+    ,custentity_donotremind AS donotremind
+    ,custentity_eulerhermescreditlimit AS eulerhermescreditlimit
+    ,custentity_hqsapclientref AS hqsapclientref
+    ,custentity_iban AS iban
+    ,custentity_invoicecc AS invoicecc
+    ,custentity_leadsource AS leadsource
+    ,custentity_opscontact AS opscontact_id
+    ,BUILTIN.DF(custentity_opscontact) AS opscontact
+    ,custentity_shipblind AS shipblind
+    ,custentity_trackingemail1 AS trackingemail1
+    ,custentity_x_sii_paisiso AS x_sii_paisiso
+    ,defaultshippingaddress
+    ,defaultbillingaddress
+    ,email
+    ,emailpreference
+    ,entitynumber
+    ,externalid
+    ,globalsubscriptionstatus
+    ,id
+    ,isinactive
+    ,language
+    ,datecreated
+    ,customer.lastmodifieddate
+    ,lastsaledate
+    ,oncredithold
+    ,overduebalancesearch
+    ,phone
+    ,pricelevel
+    ,probability
+    ,receivablesaccount
+    ,salesrep AS salesrep_id
+    ,BUILTIN.DF(salesrep) AS salesrep
+    ,searchstage
+    ,shippingitem
+    ,terms AS terms_id
+    ,BUILTIN.DF(terms) AS terms
+    ,territory
+    ,unbilledorderssearch
+    ,visits
+    ,custentity_commentscreditline
+    ,custentity_direct_debit
+    ,custentity_essy_rating_informa	
+    ,BUILTIN.DF(custentity_pricingcustomer) AS pricingcustomer
+    ,BUILTIN.DF(entitystatus) AS entitystatus
+    ,custentity_fecha_declaracion_impago AS fecha_impago
+    ,custentity_fecha_limite_impago AS fecha_limite_impago
+    ,customerAddressbookEntityAddress.zip
+    
+FROM customer LEFT OUTER JOIN  
+customerAddressbookEntityAddress
+ON  defaultbillingaddress = nkey
